@@ -80,7 +80,7 @@ export default async function Page() {
           <div className="shrink-0">
             <img
               className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover ring-4 ring-neutral-50 shadow-lg"
-              src="/assets/profile.jpg"
+              src="/assets/profile.png"
               alt="Peeraphat Chompoosi"
             />
           </div>
