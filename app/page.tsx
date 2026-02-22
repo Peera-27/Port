@@ -1,5 +1,6 @@
 import { Github, Instagram, Facebook } from "lucide-react";
 import Link from "next/link";
+import { BsDiscord } from "react-icons/bs";
 import { SiTypescript, SiGo, SiPostman, SiGit } from "react-icons/si";
 async function getRepos() {
   const res = await fetch(
@@ -59,21 +60,27 @@ export default async function Page() {
             <div className="flex gap-4 pt-2 text-neutral-400">
               <Link
                 href="https://github.com/Peera-27"
-                className="hover:text-orange-500 transition-colors"
+                className="hover:text-green-500 transition-colors"
               >
                 <Github size={22} />
               </Link>
               <Link
                 href="https://www.instagram.com/_peezx/"
-                className="hover:text-orange-500 transition-colors"
+                className="hover:text-green-500 transition-colors"
               >
                 <Instagram size={22} />
               </Link>
               <Link
                 href="https://www.facebook.com/peerphat.chompoosi.5/"
-                className="hover:text-orange-500 transition-colors"
+                className="hover:text-green-500 transition-colors"
               >
                 <Facebook size={22} />
+              </Link>
+              <Link
+                href="https://discord.com/users/857976414183227492"
+                className="hover:text-green-500 transition-colors"
+              >
+                <BsDiscord size={22} />
               </Link>
             </div>
           </div>
