@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 /**
- * Fades + lifts its children in the first time they scroll into view.
- * Reveals once and then stops observing — re-animating on every scroll-by is noise.
+ * Fades + lifts children in the first time they enter the viewport, then stops
+ * observing. Fails open (see .reveal in globals.css) for no-JS / reduced motion.
  */
 export function Reveal({
   children,
@@ -21,17 +21,17 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current
     if (!el) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return
+        // Reveal when it scrolls into view, OR when it's already been scrolled
+        // past (top above the viewport) — so anchor-jumps and End never leave a
+        // skipped section stuck invisible.
+        if (!entry.isIntersecting && entry.boundingClientRect.top >= 0) return
         setVisible(true)
         observer.disconnect()
       },
-      // Trigger a little before the element is fully in view so it lands settled.
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' },
     )
-
     observer.observe(el)
     return () => observer.disconnect()
   }, [])

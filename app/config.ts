@@ -1,18 +1,13 @@
-import { Github, Instagram, Facebook, type LucideIcon } from 'lucide-react'
-import { BsDiscord } from 'react-icons/bs'
-import type { IconType } from 'react-icons'
-
 export const site = {
   name: 'Peeraphat Chompoosi',
   nickname: 'Pee',
   role: 'Full-stack Developer',
   headline: 'Computer Science student, Faculty of Information Technology.',
   status: 'Open to internships',
+  location: 'Bangkok, TH',
+  uni: 'CS · Year 3 — Faculty of IT',
 
-  /**
-   * Shown as the primary call to action in the hero. Leave empty to hide the
-   * button entirely — a dead mailto: is worse than no button.
-   */
+  /** Shown by the `contact` command. Leave empty to omit the email line. */
   email: '',
 
   about: [
@@ -23,28 +18,26 @@ export const site = {
   github: 'Peera-27',
 
   socials: [
-    { label: 'GitHub', href: 'https://github.com/Peera-27', icon: Github },
-    { label: 'Instagram', href: 'https://www.instagram.com/_peezx/', icon: Instagram },
-    {
-      label: 'Facebook',
-      href: 'https://www.facebook.com/peerphat.chompoosi.5/',
-      icon: Facebook,
-    },
-    {
-      label: 'Discord',
-      href: 'https://discord.com/users/857976414183227492',
-      icon: BsDiscord,
-    },
-  ] satisfies { label: string; href: string; icon: LucideIcon | IconType }[],
+    { label: 'github', href: 'https://github.com/Peera-27' },
+    { label: 'instagram', href: 'https://www.instagram.com/_peezx/' },
+    { label: 'facebook', href: 'https://www.facebook.com/peerphat.chompoosi.5/' },
+    { label: 'discord', href: 'https://discord.com/users/857976414183227492' },
+  ],
+
+  skills: [
+    { group: 'languages', items: ['TypeScript', 'JavaScript', 'Go'] },
+    { group: 'frontend', items: ['Next.js', 'React', 'Tailwind CSS'] },
+    { group: 'backend', items: ['Node.js', 'Bun'] },
+    { group: 'data', items: ['MySQL', 'MongoDB', 'Supabase'] },
+    { group: 'tools', items: ['Git', 'Postman', 'Figma', 'Gemini'] },
+  ],
 }
 
 /**
- * Hand-written copy for your repos, keyed by repo name. GitHub has no
- * description on any of them, so this is the only place a visitor learns what a
- * project actually does — stars, language and dates are pulled live from the API.
+ * Hand-written one-liner per repo, keyed by repo name. Used as the description
+ * in `ls projects` when GitHub itself has none. Blank = no description printed.
  *
- * TODO(you): fill in a one-liner for each. Anything left blank simply renders
- * without a description rather than showing filler text.
+ * TODO(you): fill these in — it's the only place a visitor learns what each does.
  */
 export const projectBlurbs: Record<string, string> = {
   TinnerApp: '',
@@ -54,9 +47,3 @@ export const projectBlurbs: Record<string, string> = {
   GE: '',
   Port: '',
 }
-
-export const nav = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-]
