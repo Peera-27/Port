@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { site } from '@/app/config'
-import { ThemeToggle } from '@/app/components/theme-toggle'
 
 const nav = [
   { label: 'About', href: '#about' },
@@ -25,14 +24,11 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="hidden rounded-control px-3 py-2 text-sm text-fg-muted transition-colors hover:text-fg sm:block"
+              className="rounded-control bg-surface/50 px-3 py-2 text-sm text-fg-muted backdrop-blur transition-colors hover:text-fg"
             >
               {item.label}
             </a>
           ))}
-          <div className="ml-1">
-            <ThemeToggle />
-          </div>
         </nav>
       </div>
     </header>
