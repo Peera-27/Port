@@ -1,10 +1,12 @@
 import { getRepos } from '@/app/lib/github'
+import { getResumeHref } from '@/app/lib/resume'
 import { Background } from '@/app/components/scene/background'
 import { Hero, About, Skills, Projects } from '@/app/components/sections'
 import { site } from '@/app/config'
 
 export default async function Page() {
   const { repos, failed } = await getRepos()
+  const resumeHref = getResumeHref()
 
   return (
     <>
@@ -12,7 +14,7 @@ export default async function Page() {
       <Background />
 
       <main id="main" className="relative mx-auto max-w-3xl space-y-24 px-5 pb-24 sm:px-8">
-        <Hero />
+        <Hero resumeHref={resumeHref} />
         <About />
         <Skills />
         <Projects repos={repos} failed={failed} />

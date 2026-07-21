@@ -1,4 +1,4 @@
-import { ArrowUpRight, GitFork, Star } from 'lucide-react'
+import { ArrowUpRight, FileText, GitFork, Star } from 'lucide-react'
 import { site } from '@/app/config'
 import type { TermRepo } from '@/app/lib/github'
 import { Reveal } from '@/app/components/ui/reveal'
@@ -34,7 +34,7 @@ function Panel({
   )
 }
 
-export function Hero() {
+export function Hero({ resumeHref }: { resumeHref?: string | null }) {
   return (
     <section className="flex min-h-[88svh] flex-col justify-center">
       <Reveal className="space-y-6">
@@ -62,6 +62,20 @@ export function Hero() {
             View work
             <ArrowUpRight size={16} />
           </a>
+
+          {/* Only rendered when public/resume.pdf actually exists — see lib/resume.ts */}
+          {resumeHref && (
+            <a
+              href={resumeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-control border border-border bg-surface/60 px-5 py-2.5 text-sm font-medium text-fg backdrop-blur transition duration-200 ease-out-soft hover:-translate-y-0.5 hover:border-accent/60 active:translate-y-0"
+            >
+              <FileText size={16} aria-hidden />
+              Resume
+            </a>
+          )}
+
           <Socials />
         </div>
       </Reveal>
